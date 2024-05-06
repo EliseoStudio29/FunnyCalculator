@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculator</title>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+        transition: background-color 0.5s ease; /* Smooth transition */
+        color: black; /* Default text color */
+    }
+    .container {
+        text-align: center;
+    }
+    #result {
+        margin-top: 20px;
+    }
+    /* CSS animation for fade transition */
+    @keyframes fade-in {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    .fade-in {
+        animation: fade-in 2s ease;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>Calculator</h1>
+    <p>Insert your question:</p>
+    <input type="text" id="question">
+    <br><br>
+    <button onclick="generateAnswer()">Generate Answer</button>
+    <p id="result"></p>
+    <br><br>
+    <!-- Add a line break to create a gap -->
+    <br>
+    <!-- Add your image here -->
+    <img id="image" src="example.png" style="opacity: 0;">
+    <br><br>
+    <button onclick="reloadPage()">Insert your question again?</button>
+</div>
+
+<script>
+function generateAnswer() {
+    document.getElementById("result").innerHTML = "IDK, Ask your Teacher duhh, Remember you pay for school,so use your brain";
+    // Change text color to white after 0.2 seconds
+    setTimeout(function() {
+        document.body.style.color = "white";
+    }, 200); 
+    setTimeout(function() {
+        // Append text without any transition
+        document.getElementById("result").innerHTML += "<br>Remember your parents hardwork, so try harder! Don't give up! Count it by yourself!";
+        // Append "but" after 1 second
+        setTimeout(function() {
+            document.getElementById("result").innerHTML += "<br> but";
+            // Append additional message after 3 seconds
+            setTimeout(function() {
+                document.getElementById("result").innerHTML += "<br><span class='fade-in'>This calculator actually works but is still under development, so please wait until August.</span>";
+                // Append a line break and "Insert your question again?" button
+                document.getElementById("result").innerHTML += "<br><br><button onclick='reloadPage()'>Insert your question again?</button>";
+                // Append the PNG picture after 3 seconds
+                setTimeout(function() {
+                    document.getElementById("image").style.opacity = 1; // Make the image visible
+                }, 3000);
+            }, 3000);
+        }, 1000);
+    }, 3000); // Wait for 3 seconds
+    // Function to change background color
+    var interval = setInterval(function() {
+        var r = Math.floor(Math.random() * 256);
+        var g = Math.floor(Math.random() * 256);
+        var b = Math.floor(Math.random() * 256);
+        document.body.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
+    }, 200);
+    // No need to stop the color change as it repeats forever
+}
+
+// Function to reload the page
+function reloadPage() {
+    location.reload();
+}
+</script>
+</body>
+</html>
